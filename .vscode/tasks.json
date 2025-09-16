@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "OpenCV C++ Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            // "program": 실행할 프로그램 경로
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            // "preLaunchTask": 실행(F5) 전에 실행할 작업을 지정
+            // tasks.json에 정의한 "label"과 일치해야 합니다.
+            "preLaunchTask": "OpenCV C++ Build"
+        }
+    ]
+}
