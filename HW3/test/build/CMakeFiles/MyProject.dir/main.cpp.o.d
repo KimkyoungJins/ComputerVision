@@ -1,5 +1,5 @@
 CMakeFiles/MyProject.dir/main.cpp.o: \
-  /Users/kim_kyoungkun/Desktop/2025-2/ComputerVision/HW3/main.cpp \
+  /Users/kim_kyoungkun/Desktop/2025-2/ComputerVision/HW3/test/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
