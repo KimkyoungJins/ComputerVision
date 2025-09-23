@@ -34,7 +34,7 @@ Mat Negative_Gamma(Mat image){
                 result.at<uchar>(i, j) = 255 - pixel;
             }
 
-            // 다른 경우에는 gamma transformation
+            // 다른 경우에는 Gamma transformation
             else {
                 float gamma = pixel / 255.0;
                 float gamma_trans = pow(gamma_trans, 10.0);
@@ -55,6 +55,7 @@ int main(){
 
     Mat rotated_image = rotate_img_90(image);    
     Mat result_image = Negative_Gamma(rotated_image);
+
     imshow("result image", result_image);
     waitKey(0);
     return 0;
