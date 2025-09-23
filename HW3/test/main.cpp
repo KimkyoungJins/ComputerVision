@@ -37,16 +37,14 @@ Mat right_half(Mat image){
 
 // }
 
-
-// Mat median_filter(){
-//     Mat image = imread("saltpepper.png", 0);
-//     left_half(image);
-
-//     return 
-// }
-
-
-
+// 메디안 필터적용
+Mat median_filter(){
+    Mat image = imread("saltpepper.png", 0);
+    Mat src = left_half(image);
+    Mat dst;
+    medianBlur(src, dst, 9);
+    return dst;
+}
 
 int main(){
 
@@ -73,7 +71,8 @@ int main(){
 
     add(image,(unsharp_mask * 1), result); 
 
-    imshow("first", result);
+    imshow("moon_filtered", result);
+    imshow("saltnpepper",median_filter());
 
     waitKey(0);
     return 0;
