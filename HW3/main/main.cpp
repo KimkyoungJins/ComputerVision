@@ -55,6 +55,7 @@ int main()
     GaussianBlur(image, gausian_blurr, Size(3, 3), 0, 0, BORDER_DEFAULT);
     unsharp = image - gausian_blurr;
     result = image + (unsharp * 1);
+    
 
     imshow("result", result);
 

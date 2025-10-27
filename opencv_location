@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                // ➡️ 여기에 복사하신 경로를 추가합니다.
+                "/opt/homebrew/opt/opencv/include/opencv4" 
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            // Homebrew를 사용한 M1/M2/M3 Mac 환경에 적합한 설정입니다.
+            "intelliSenseMode": "macos-clang-arm64" 
+        }
+    ],
+    "version": 4
+}

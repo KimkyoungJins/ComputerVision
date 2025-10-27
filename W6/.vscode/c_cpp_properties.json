@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                // 💡 Homebrew 설치 경로(/opt/homebrew/)의 include 폴더를 추가합니다.
+                // 1. OpenCV 4.x 헤더가 있는 경로 (가장 구체적인 경로)
+                "/opt/homebrew/include/opencv4", 
+                // 2. 일반적인 Homebrew include 경로 
+                "/opt/homebrew/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "intelliSenseMode": "macos-clang-arm64"
+        }
+    ],
+    "version": 4
+}
