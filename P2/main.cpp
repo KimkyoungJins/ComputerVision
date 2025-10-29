@@ -17,7 +17,7 @@ using namespace std;
 // 허프변환 통하여서 차선인 것을 인식시킨다. 
 // 그 후에 결과값의 참/거짓을 통하여서 Line departure 출력여부 결정한다
 void line_departure(Mat frame){
-
+    
     Mat line;                   // 허프변환을 위한 
     int roi_x, roi_y;           // 정해진 roi값 내에서 감지를 해야한다.
     Mat blur;                   // 가우시안 블러 저장 변수
