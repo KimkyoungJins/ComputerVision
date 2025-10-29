@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /opt/homebrew/Cellar/opencv/4.12.0_9/include/opencv4
 
-CXX_FLAGSarm64 =  -arch arm64
+CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
 
-CXX_FLAGS =  -arch arm64
+CXX_FLAGS = -std=gnu++17 -arch arm64
 

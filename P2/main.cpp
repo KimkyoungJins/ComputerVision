@@ -4,6 +4,18 @@
 using namespace cv;
 using namespace std;
 
+// int main(){
+
+//     Mat image = imread("hand.png");
+    
+//     cvtColor(image, image, COLOR_BGR2HSV);
+//     inRange(image, Scalar(0, 0, 200), Scalar(180, 80, 255),image);
+
+//     imshow("inRange", image);
+//     waitKey(0);
+//     return 0;
+// }
+
 // 21900066 김경진
 // 컴퓨터비전 프로젝트 2
 // 차선 이탈을 감지하기 위한 함수
@@ -17,17 +29,29 @@ using namespace std;
 // 허프변환 통하여서 차선인 것을 인식시킨다. 
 // 그 후에 결과값의 참/거짓을 통하여서 Line departure 출력여부 결정한다
 void line_departure(Mat frame){
-    
+
+    Mat cvt_color;              // 색상 바꾼 이미지를 위해서
     Mat line;                   // 허프변환을 위한 
     int roi_x, roi_y;           // 정해진 roi값 내에서 감지를 해야한다.
     Mat blur;                   // 가우시안 블러 저장 변수
     vector<Vec4i> lines;        // 허브변환 벡터값
 
-    // 해당 이미지의 전체 x값과 y값을 모른다. 
+    // 첫 번째로 이미지 전체 컬러를 차선 감지하기 쉽게 한다.
+    // 전체 공간의 색상을 차선을 감지 하기 위해서 필터링을 하는 시도가 필요하다. 
+    // 색상을 HSV으로 바꾼다. 
+    cvtColor(frame, cvt_color, COLOR_BGR2HSV);
+
+    // Scalar을 통하여서 HSV에서의 흰색을 정의한다. 
+    // 차선은 흰색이기때문에
+    // cvt_color 변수에 흰색 차선을 명확하게 감지하도록 한 내용 저장함. 
+    inRange(cvt_color, Scalar(0, 0, 200), Scalar(180, 80, 255),cvt_color);
+
+    // 둘째로 차선이 들어설시에 메시지를 보내는 ROI값을 구한다.
+    // 해당 이미지의 전체 x값과 y값을 구한다.
     roi_x = frame.cols;
     roi_y = frame.rows;
 
-    // p1의 값을 원하는 계산으로 구하기
+    // p1의 값을 원하는 계산으로 구한다.
     // 둘다 최대가 100이라고 치면
     // p1의 위치는 x의 40부분, y의 90부분
     float p1_x = (roi_x / 10);
@@ -36,8 +60,8 @@ void line_departure(Mat frame){
     // 원하는 ROI부분 설정하기
     Rect rect(p1_x * 4, p1_y * 9, p1_x * 2, p1_y);
 
-    // roi부분을 frame에 넣기
-    Mat roi = frame(rect);
+    // roi부분을 cvt_color에 넣고 roi변수에 넣음
+    Mat roi = cvt_color(rect);
 
     // 해당 부분을 가우시안해서 명확하게 바꾸기 그 다음에 blur에 저장
     GaussianBlur(roi, blur, Size(5, 5), 5, 5, BORDER_DEFAULT);
@@ -113,3 +137,5 @@ int main(){
 
     return 0;
 }
+
+
